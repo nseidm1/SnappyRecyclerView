@@ -247,6 +247,10 @@ public class SnappingRecyclerView extends RecyclerView {
 
         View currentViewClosestToAnchor = linearLayoutManager.findViewByPosition(firstVisibleItemPosition);
 
+        if (currentViewClosestToAnchor == null) {
+            return 0;
+        }
+
         int currentViewClosestToAnchorDistance = parentAnchor - getViewAnchor(currentViewClosestToAnchor, orientation, anchor);
 
         for(int i = firstVisibleItemPosition + 1; i <= lastVisibleItemPosition; i++) {
